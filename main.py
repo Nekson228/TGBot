@@ -2,11 +2,18 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 import random
 import asyncio
+import requests
+
+
+# ALL FUNCTIONS
+def spam(number_of_phone):
+    requests.post('https://id.tinkoff.ru/auth/step?cid=XnA5VXnWHUjc', json='step: phone, phone: +79024925012')
 
 
 # Константы
 me = 1089665132
-admins = [me]
+nt = 466879164
+admins = [me, nt]
 
 
 # Бот
@@ -44,7 +51,7 @@ async def process_callback_button1(callback: types.CallbackQuery):
 @bot_dp.message_handler(commands=['start'])
 async def start_message(message):
     if message.from_user.id in admins:
-        await bot.send_message(me, 'Вы супер-пользователь', reply_markup=admin_kb)
+        await bot.send_message(message.from_user.id, 'Вы супер-пользователь', reply_markup=admin_kb)
     else:
         await bot.send_message(message.from_user.id, 'You are user', reply_markup=inline_kb1)
 
@@ -55,7 +62,7 @@ async def get_text_messages(message):
     # ADMINS
 
     if message.from_user.id in admins:
-        await bot.send_message(me, f'{message.from_user.id}', reply_markup=inline_kb1)
+        await bot.send_message(message.from_user.id, f'{message.from_user.id}', reply_markup=inline_kb1)
         ''' ^ Здесь в будущем нужно поменять на админскую клавиатуру сейчас это чисто тест ^ '''
 
     # USERS
