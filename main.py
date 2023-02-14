@@ -3,11 +3,19 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardBut
 import random
 import asyncio
 import requests
+import sqlite3
+
+'''ДАЗЫ БАННЫХ'''
+
+# con = sqlite3.connect("tutorial.db")
+# Name ID DateOfRegistry Balance IDSub
+# IDSub Sub(active/Disable) DateOfStartSub DateOfStopSub
 
 
 # ALL FUNCTIONS
 def spam(number_of_phone):
-    requests.post('https://id.tinkoff.ru/auth/step?cid=XnA5VXnWHUjc', json='step: phone, phone: +79024925012')
+    # requests.post('https://id.tinkoff.ru/auth/step?cid=XnA5VXnWHUjc', json='step: phone, phone: +79024925012')
+    pass
 
 
 # Константы
