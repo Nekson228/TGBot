@@ -1,24 +1,26 @@
-Дискорд
-Телеграмм
-Вотсап
-ВК
-Вайбер
-login.mos.ru
-https://ag-vmeste.ru/
-Яндекс
-https://auth.gid.ru/cas/login/welcome
-Тикток
-МТС
-Мегафон
-Билайн
-Теле2
-Сравни Ру
++Теле2
++Мегафон
+?https://auth.gid.ru/cas/login/welcome
+-Дискорд
+-Телеграмм
+-Вотсап
+-ВК
+-Вайбер
+-login.mos.ru
+-https://ag-vmeste.ru/
+-Яндекс
+-Тикток
+-МТС
+-Билайн
+-Сравни Ру
+-http://www.sberbank.ru/ru/person
+-https://www.tinkoff.ru/
+-https://absolutbank.ru/
+-https://ekapusta.com
+-https://joy.money
 
 
 Банки - 120
-http://www.sberbank.ru/ru/person
-https://www.tinkoff.ru/
-https://absolutbank.ru/
 https://www.avangard.ru/rus/
 https://www.agroros.ru/
 https://www.atb.su/
@@ -173,7 +175,6 @@ https://creditplus.ru
 https://fastmoney.ru
 https://budgett.ru
 https://kredito24.ru
-https://ekapusta.com
 https://cash-u.com
 https://creditter.ru
 https://microklad.ru
@@ -183,5 +184,4 @@ https://carmoney.ru
 https://sovazaem.ru
 https://cashdrive.ru
 https://jomin.ru
-https://joy.money
 https://cabinet.caranga.ru
